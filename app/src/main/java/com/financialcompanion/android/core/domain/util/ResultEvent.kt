@@ -77,7 +77,3 @@ abstract class ResultEvent<T>(
         private object ResultIdentifier : Identification.Type
     }
 }
-
-object Events {
-
-}

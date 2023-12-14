@@ -1,4 +1,4 @@
-package com.financialcompanion.android.core.presentation.di
+package com.financialcompanion.android.core.domain.extension
 
 import androidx.lifecycle.ViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel

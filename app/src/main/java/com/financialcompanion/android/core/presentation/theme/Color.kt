@@ -1,4 +1,4 @@
-package com.financialcompanion.android.ui.theme
+package com.financialcompanion.android.core.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

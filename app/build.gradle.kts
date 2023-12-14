@@ -1,3 +1,7 @@
+import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import java.text.SimpleDateFormat
+import java.util.Date
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -20,13 +24,67 @@ android {
         }
     }
 
+    applicationVariants.all {
+        outputs.all {
+            if (this is BaseVariantOutputImpl) {
+                outputFileName = when (buildType.name) {
+                    "debug" -> {
+                        "FinancialCompanion-${
+                            SimpleDateFormat("dd.MM.yyyy").format(Date())
+                        }.apk"
+                    }
+
+                    "beta" -> {
+                        "FinancialCompanion-beta-vc${versionCode}-vn${
+                            versionName.replace(
+                                "(beta)",
+                                ""
+                            )
+                        }.apk"
+                    }
+
+                    else -> {
+                        "FinancialCompanion-vc${versionCode}-vn${versionName}.apk"
+                    }
+                }
+            }
+        }
+    }
+
+
     buildTypes {
         release {
             isMinifyEnabled = false
+            isShrinkResources = false
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            buildConfigField("boolean", "RELEASE_BUILD_TYPE", "true")
+            buildConfigField("boolean", "BETA_BUILD_TYPE", "false")
+            buildConfigField("boolean", "DEBUG_BUILD_TYPE", "false")
+        }
+
+        register("beta") {
+            initWith(getByName("release"))
+            applicationIdSuffix = ".beta"
+            versionNameSuffix = "(beta)"
+
+            buildConfigField("boolean", "RELEASE_BUILD_TYPE", "false")
+            buildConfigField("boolean", "BETA_BUILD_TYPE", "true")
+            buildConfigField("boolean", "DEBUG_BUILD_TYPE", "false")
+        }
+
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "(debug)"
+            isDebuggable = true
+
+            buildConfigField("boolean", "RELEASE_BUILD_TYPE", "false")
+            buildConfigField("boolean", "BETA_BUILD_TYPE", "false")
+            buildConfigField("boolean", "DEBUG_BUILD_TYPE", "true")
         }
     }
 
@@ -41,6 +99,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
@@ -84,7 +143,7 @@ dependencies {
     implementation("com.jakewharton.timber:timber:5.0.1")
     implementation("joda-time:joda-time:2.10.14")
     implementation("com.chibatching.kotpref:kotpref:2.13.1")
-    implementation("com.github.jamal-wia:NavigationController:1.1.0")
+    implementation("com.github.jamal-wia:NavigationController:1.1.1")
 
     // Tools - memory leaks
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.9.1")
