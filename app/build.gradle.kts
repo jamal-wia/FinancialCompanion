@@ -141,7 +141,7 @@ dependencies {
     implementation("com.jakewharton.timber:timber:5.0.1")
     implementation("joda-time:joda-time:2.10.14")
     implementation("com.chibatching.kotpref:kotpref:2.13.1")
-    implementation("com.github.jamal-wia:NavigationController:1.1.1")
+    implementation("com.github.jamal-wia:NavigationController:1.1.3")
 
     // Tools - memory leaks
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.9.1")

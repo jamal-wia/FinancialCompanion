@@ -2,6 +2,8 @@ package com.financialcompanion.android
 
 import android.app.Application
 import com.financialcompanion.android.core.domain.di.allModules
+import com.financialcompanion.android.core.presentation.navigation.AppNavigationFactory
+import com.jamal_aliev.navigationcontroller.navigator.NavigationControllerHolder
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext
@@ -14,6 +16,7 @@ class App : Application() {
         Thread.currentThread().priority = Thread.MAX_PRIORITY
         initKoin()
         initTimber()
+        initNavigationController()
     }
 
     private fun initKoin() {
@@ -28,5 +31,9 @@ class App : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+    }
+
+    private fun initNavigationController() {
+        NavigationControllerHolder.createNavigator(AppNavigationFactory())
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_item"
+        android:icon="@drawable/selector_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/screen2_item"
+        android:icon="@drawable/ic_question_white"
+        android:title="Unknow" />
+
+    <item
+        android:id="@+id/screen3_item"
+        android:icon="@drawable/ic_question_white"
+        android:title="Unknow" />
+
+    <item
+        android:id="@+id/screen4_item"
+        android:icon="@drawable/ic_question_white"
+        android:title="Unknow" />
+
+    <item
+        android:id="@+id/profile_item"
+        android:icon="@drawable/selector_person"
+        android:title="Profile" />
+</menu>

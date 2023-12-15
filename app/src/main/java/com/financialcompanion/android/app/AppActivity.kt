@@ -3,7 +3,7 @@ package com.financialcompanion.android.app
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.financialcompanion.android.R
-import com.jamal_aliev.navigationcontroller.controllers.LineNavigationControllerFragmentScreen
+import com.financialcompanion.android.core.presentation.navigation.AppScreen
 import com.jamal_aliev.navigationcontroller.core.NavigationControllerFragment
 import com.jamal_aliev.navigationcontroller.core.provider.OnNavigationUpProvider
 
@@ -15,7 +15,7 @@ class AppActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             NavigationControllerFragment.Builder()
-                .setRootScreen(LineNavigationControllerFragmentScreen())
+                .setRootScreen(AppScreen.RootNavigationControllerScreen)
                 .show(supportFragmentManager, R.id.app_container)
         }
     }
