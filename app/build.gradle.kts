@@ -131,10 +131,6 @@ dependencies {
     // UI - Android
     implementation("androidx.fragment:fragment-ktx:1.6.2") // + MVVM // Некоторые антивирусы начинаю жаловаться при обновлении
     implementation("com.google.android.material:material:1.10.0") // Некоторые антивирусы начинаю жаловаться при обновлении
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
-    // UI -External
-    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6")
 
     // Util
     implementation("io.insert-koin:koin-android:3.3.2")
