@@ -29,22 +29,20 @@ android {
             if (this is BaseVariantOutputImpl) {
                 outputFileName = when (buildType.name) {
                     "debug" -> {
-                        "FinancialCompanion-${
-                            SimpleDateFormat("dd.MM.yyyy").format(Date())
-                        }.apk"
+                        val date = SimpleDateFormat("dd.MM.yyyy").format(Date())
+                        "FinancialCompanion-$date.apk"
                     }
 
                     "beta" -> {
-                        "FinancialCompanion-beta-vc${versionCode}-vn${
-                            versionName.replace(
-                                "(beta)",
-                                ""
-                            )
-                        }.apk"
+                        val vc = versionCode
+                        val vn = versionName.replace("(beta)", "")
+                        "FinancialCompanion-beta-vc$vc-vn$vn.apk"
                     }
 
                     else -> {
-                        "FinancialCompanion-vc${versionCode}-vn${versionName}.apk"
+                        val vc = versionCode
+                        val vn = versionName
+                        "FinancialCompanion-vc$vc-vn$vn.apk"
                     }
                 }
             }
