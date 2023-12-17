@@ -25,7 +25,7 @@ sealed class AppScreen : Screen, Serializable {
 
     object HomeLineNavigationControllerScreen :
         LineNavigationControllerFragmentScreen(
-            listOf(HomeScreen)
+            listOf(CategoriesScreen)
         ),
         SwitchScreen {
         override val id: Int get() = R.id.home_item
@@ -59,4 +59,5 @@ sealed class AppScreen : Screen, Serializable {
 
     object HomeScreen : Screen, Serializable
     object ProfileScreen : Screen, Serializable
+    object CategoriesScreen : Screen, Serializable
 }
