@@ -118,7 +118,7 @@ inline fun <T> List<T>.indexOfFirstOrLast(predicate: (T) -> Boolean): Int {
 
     val startIterator = this.listIterator()
     var startIteratorIndex = -1
-    val endIterator = this.listIterator()
+    val endIterator = this.listIterator(this.size - 1)
     var endIteratorIndex = this.size
 
     while (startIterator.hasNext() && endIterator.hasPrevious()) {

@@ -2,7 +2,6 @@
 <resources>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -15,6 +14,9 @@
     <color name="drag_bg">@color/brand_bali_hai</color>
     <color name="ripple_effect">@color/brand_persian_green</color>
     <color name="screens_pos_neg_bg">@color/brand_white</color>
+
+    <color name="moody_blue">#827BD5</color>
+
 
 
 </resources>
