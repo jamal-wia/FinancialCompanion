@@ -1,4 +1,4 @@
-package com.financialcompanion.android.category.data
+package com.financialcompanion.android.category.data.util
 
 import com.financialcompanion.android.category.domain.model.CategoryModel
 
