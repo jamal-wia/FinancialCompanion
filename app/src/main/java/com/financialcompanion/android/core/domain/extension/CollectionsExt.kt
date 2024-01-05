@@ -152,7 +152,5 @@ inline fun <T> MutableList<T>.removeFirstIf(predicate: (T) -> Boolean): Boolean 
     return true
 }
 
-fun <T, E> List<T>.cast(): List<E> = this as List<E>
-
 inline fun <reified T> Any.cast(): T = this as T
 inline fun <reified T> Any.castOrNull(): T? = this as? T
