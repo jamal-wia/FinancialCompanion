@@ -59,4 +59,5 @@ sealed class AppScreen : Screen, Serializable {
 
     object HomeScreen : Screen, Serializable
     object ProfileScreen : Screen, Serializable
+    object GreetingScreen : Screen, Serializable
 }
