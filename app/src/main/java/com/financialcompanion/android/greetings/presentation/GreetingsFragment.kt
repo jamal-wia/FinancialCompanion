@@ -35,6 +35,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.financialcompanion.android.R
 import com.financialcompanion.android.core.domain.extension.cast
 import com.financialcompanion.android.core.presentation.base.BaseFragment
+import com.financialcompanion.android.core.presentation.ds.DotsIndicator
 import com.financialcompanion.android.greetings.presentation.GreetingViewState.Data
 import com.financialcompanion.android.greetings.presentation.model.GreetingUiModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -78,9 +79,13 @@ class GreetingsFragment : BaseFragment() {
     @OptIn(ExperimentalFoundationApi::class)
     @Composable
     fun GreetingPager(greetings: List<GreetingUiModel>) {
-        val pagerState = rememberPagerState { greetings.size }
-        HorizontalPager(state = pagerState) { currentPage ->
-            GreetingPage(greeting = greetings[currentPage])
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            val pagerState = rememberPagerState { greetings.size }
+            HorizontalPager(state = pagerState) { currentPage ->
+                GreetingPage(greeting = greetings[currentPage])
+            }
+            Spacer(modifier = Modifier.height(height = 19.dp))
+            DotsIndicator(pagerState = pagerState)
         }
     }
 
