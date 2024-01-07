@@ -2,24 +2,24 @@
     <string name="app_name">Все ваши финансы в одном приложении</string>
 
     <string name="title_screen_first">Все ваши финансы в одном приложении</string>
-<!--    <string name="title_screen_second">Подключите ваш банк</string>-->
-<!--    <string name="title_screen_third">Отслеживайте ваши расходы</string>-->
-<!--    <рstring name="title_screen_fourth">Определите свою цель</рstring>-->
-<!--    <string name="title_screen_fifth">Уравляйте своими денежными средствами</string>-->
-<!--    <string name="title_screen_sixth">Следуйте своему плану и мечтам</string>-->
+    <string name="title_screen_second">Подключите ваш банк</string>
+    <string name="title_screen_third">Отслеживайте ваши расходы</string>
+    <string name="title_screen_fourth">Определите свою цель</string>
+    <string name="title_screen_fifth">Уравляйте своими денежными средствами</string>
+    <string name="title_screen_sixth">Следуйте своему плану и мечтам</string>
 
     <string name="description_screen_first">Получите полную картинку обо всех своих деньгах.
     Подключите свой банк,отслеживайте наличные или имортируйте данные</string>
-<!--    <string name="description_screen_second">Подключите все свои счета из любого банка.-->
-<!--    Добавляйте сбережения,кредитные карты,PayPal и многое другое</string>-->
-<!--    <string name="description_screen_third">Отслеживайте и анализируйте расходы немедленно-->
-<!--        и автоматически через наше банковское подключение </string>-->
-<!--    <string name="description_screen_fourth">Отслеживайте и следуйте тому,что важно для вас.-->
-<!--        Сохраните для важных вещей</string>-->
-<!--    <string name="description_screen_fifth">Создовайте полезные финансовые привычки.-->
-<!--        Управляйте ненужными расходами</string>-->
-<!--    <string name="description_screen_sixth">Постройте свою финансовую жизнь.-->
-<!--        Принимайте правильные финансовые решения.Смотрите только то,что важно для вас</string>-->
+    <string name="description_screen_second">Подключите все свои счета из любого банка.
+    Добавляйте сбережения,кредитные карты,PayPal и многое другое</string>
+    <string name="description_screen_third">Отслеживайте и анализируйте расходы немедленно
+        и автоматически через наше банковское подключение </string>
+    <string name="description_screen_fourth">Отслеживайте и следуйте тому,что важно для вас.
+        Сохраните для важных вещей</string>
+    <string name="description_screen_fifth">Создовайте полезные финансовые привычки.
+        Управляйте ненужными расходами</string>
+    <string name="description_screen_sixth">Постройте свою финансовую жизнь.
+        Принимайте правильные финансовые решения.Смотрите только то,что важно для вас</string>
 
     <string name="start_right_now_button">Начните прямо сейчас</string>
 
