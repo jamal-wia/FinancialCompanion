@@ -2,6 +2,7 @@ package com.financialcompanion.android
 
 import android.app.Application
 import com.chibatching.kotpref.BuildConfig
+import com.chibatching.kotpref.Kotpref
 import com.financialcompanion.android.core.domain.di.allModules
 import com.financialcompanion.android.core.presentation.navigation.AppNavigationFactory
 import com.jamal_aliev.navigationcontroller.navigator.NavigationControllerHolder
@@ -18,6 +19,7 @@ class App : Application() {
         initKoin()
         initTimber()
         initNavigationController()
+        initKotpref()
     }
 
     private fun initKoin() {
@@ -36,5 +38,9 @@ class App : Application() {
 
     private fun initNavigationController() {
         NavigationControllerHolder.createNavigator(AppNavigationFactory())
+    }
+
+    private fun initKotpref() {
+        Kotpref.init(this)
     }
 }
