@@ -118,7 +118,7 @@ class GreetingsFragment : BaseFragment() {
     @Composable
     fun StartButton() {
         OutlinedButton(
-            onClick = { /*TODO*/ },
+            onClick = { viewModel.startClicked() },
             shape = RoundedCornerShape(size = 6.dp),
         ) {
             Text(text = stringResource(id = R.string.start_right_now_button))

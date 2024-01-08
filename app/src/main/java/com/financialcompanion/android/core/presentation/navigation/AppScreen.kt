@@ -1,6 +1,7 @@
 package com.financialcompanion.android.core.presentation.navigation
 
 import com.financialcompanion.android.R
+import com.financialcompanion.android.greetings.data.prefs.GreetingsPrefs
 import com.jamal_aliev.navigationcontroller.controllers.BottomNavigationControllerFragmentScreen
 import com.jamal_aliev.navigationcontroller.controllers.LineNavigationControllerFragmentScreen
 import com.jamal_aliev.navigationcontroller.core.screen.SwitchScreen
@@ -9,8 +10,14 @@ import java.io.Serializable
 
 sealed class AppScreen : Screen, Serializable {
 
-    object RootNavigationControllerScreen : LineNavigationControllerFragmentScreen(
-        screens = listOf(TabNavigationControllerScreen)
+    class RootNavigationControllerScreen : LineNavigationControllerFragmentScreen(
+        screens = run {
+            if (GreetingsPrefs.isShowed) {
+                listOf(TabNavigationControllerScreen)
+            } else {
+                listOf(GreetingScreen)
+            }
+        }
     )
 
     object TabNavigationControllerScreen : BottomNavigationControllerFragmentScreen(

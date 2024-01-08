@@ -15,7 +15,7 @@ class AppActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             NavigationControllerFragment.Builder()
-                .setRootScreen(AppScreen.RootNavigationControllerScreen)
+                .setRootScreen(AppScreen.RootNavigationControllerScreen())
                 .show(supportFragmentManager, R.id.app_container)
         }
     }
@@ -24,5 +24,4 @@ class AppActivity : AppCompatActivity() {
         return (supportFragmentManager.findFragmentById(R.id.app_container)
                 as? OnNavigationUpProvider)?.onNavigationUp() == true
     }
-
 }
