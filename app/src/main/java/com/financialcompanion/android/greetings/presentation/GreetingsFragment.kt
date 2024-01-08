@@ -70,7 +70,7 @@ class GreetingsFragment : BaseFragment() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            GreetingPager(greetings = data.greeting)
+            GreetingPager(greetings = data.greetings)
             Spacer(modifier = Modifier.height(height = 30.dp))
             StartButton()
         }

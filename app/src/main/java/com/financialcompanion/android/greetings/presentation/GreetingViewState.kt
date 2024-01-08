@@ -5,7 +5,7 @@ import com.financialcompanion.android.greetings.presentation.model.GreetingUiMod
 
 sealed class GreetingViewState {
     object Data : GreetingViewState() {
-        val greeting = listOf(
+        val greetings = listOf(
             GreetingUiModel(
                 titleId = R.string.title_screen_first,
                 descriptionId = R.string.description_screen_first,
