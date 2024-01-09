@@ -1,16 +1,27 @@
 package com.financialcompanion.android.core.presentation.navigation
 
 import com.financialcompanion.android.R
+import com.financialcompanion.android.greetings.domain.usecase.GreetingsIsShowedUseCase
 import com.jamal_aliev.navigationcontroller.controllers.BottomNavigationControllerFragmentScreen
 import com.jamal_aliev.navigationcontroller.controllers.LineNavigationControllerFragmentScreen
 import com.jamal_aliev.navigationcontroller.core.screen.SwitchScreen
 import me.aartikov.alligator.Screen
+import org.koin.java.KoinJavaComponent
 import java.io.Serializable
 
 sealed class AppScreen : Screen, Serializable {
 
-    object RootNavigationControllerScreen : LineNavigationControllerFragmentScreen(
-        screens = listOf(TabNavigationControllerScreen)
+    class RootNavigationControllerScreen : LineNavigationControllerFragmentScreen(
+        screens = run {
+            val greetingsIsShowedUseCase = KoinJavaComponent
+                .get<GreetingsIsShowedUseCase>(GreetingsIsShowedUseCase::class.java)
+
+            if (greetingsIsShowedUseCase.getIsShowed()) {
+                listOf(TabNavigationControllerScreen)
+            } else {
+                listOf(GreetingScreen)
+            }
+        }
     )
 
     object TabNavigationControllerScreen : BottomNavigationControllerFragmentScreen(
@@ -59,4 +70,5 @@ sealed class AppScreen : Screen, Serializable {
 
     object HomeScreen : Screen, Serializable
     object ProfileScreen : Screen, Serializable
+    object GreetingScreen : Screen, Serializable
 }

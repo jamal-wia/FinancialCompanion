@@ -118,7 +118,7 @@ inline fun <T> List<T>.indexOfFirstOrLast(predicate: (T) -> Boolean): Int {
 
     val startIterator = this.listIterator()
     var startIteratorIndex = -1
-    val endIterator = this.listIterator()
+    val endIterator = this.listIterator(this.size - 1)
     var endIteratorIndex = this.size
 
     while (startIterator.hasNext() && endIterator.hasPrevious()) {
@@ -151,8 +151,6 @@ inline fun <T> MutableList<T>.removeFirstIf(predicate: (T) -> Boolean): Boolean 
     this.removeAt(index)
     return true
 }
-
-fun <T, E> List<T>.cast(): List<E> = this as List<E>
 
 inline fun <reified T> Any.cast(): T = this as T
 inline fun <reified T> Any.castOrNull(): T? = this as? T
