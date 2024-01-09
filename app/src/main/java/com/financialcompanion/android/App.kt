@@ -18,8 +18,8 @@ class App : Application() {
         Thread.currentThread().priority = Thread.MAX_PRIORITY
         initKoin()
         initTimber()
-        initNavigationController()
         initKotpref()
+        initNavigationController()
     }
 
     private fun initKoin() {

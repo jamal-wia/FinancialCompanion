@@ -1,6 +1,7 @@
 package com.financialcompanion.android.core.domain.di
 
 import com.financialcompanion.android.core.presentation.di.navigationModule
+import com.financialcompanion.android.greetings.domain.greetingDomainModule
 import com.financialcompanion.android.greetings.presentation.greetingsPresentationModule
 
 fun allModules() = listOf(
@@ -8,5 +9,6 @@ fun allModules() = listOf(
     navigationModule(),
     coroutineModule(),
 
+    greetingDomainModule(),
     greetingsPresentationModule()
 )
