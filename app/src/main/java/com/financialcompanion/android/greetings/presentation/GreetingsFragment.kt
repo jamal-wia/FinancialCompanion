@@ -98,13 +98,14 @@ class GreetingsFragment : BaseFragment() {
             )
             Text(
                 text = stringResource(id = greeting.titleId),
-                fontWeight = FontWeight.Bold,
                 modifier = Modifier
                     .padding(top = 45.dp)
                     .fillMaxWidth()
                     .padding(horizontal = 15.dp),
                 fontSize = 25.sp, textAlign = TextAlign.Center,
-            )
+                fontWeight = FontWeight.Bold,
+
+                )
             Text(
                 text = stringResource(id = greeting.descriptionId),
                 modifier = Modifier.padding(top = 13.dp),
