@@ -1,4 +1,4 @@
-package com.financialcompanion.android.app
+package com.financialcompanion.android.app.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

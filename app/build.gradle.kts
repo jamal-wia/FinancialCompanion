@@ -6,6 +6,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
+    id("kotlin-kapt")
+//    id("com.google.devtools.ksp")
+
 }
 
 android {
@@ -118,7 +121,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
     // Kotlin
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
 
     // UI - Compose
     implementation(platform("androidx.compose:compose-bom:2023.10.01"))
@@ -146,9 +149,14 @@ dependencies {
     implementation("joda-time:joda-time:2.10.14")
     implementation("com.chibatching.kotpref:kotpref:2.13.1")
     implementation("com.github.jamal-wia:NavigationController:1.1.3")
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+
 
     // Tools - memory leaks
-    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.9.1")
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.10")
     // Tools - exceptions
     debugImplementation("com.github.haroldadmin:WhatTheStack:1.0.0-alpha04")
 
