@@ -17,7 +17,10 @@
 
     <color name="moody_blue">#827BD5</color>
     <color name="gray">#929292</color>
-
+    <color name="shamrock">#32D57A</color>
+    <color name="cornflower_blue_google">#4286F3</color>
+    <color name="azure_radiance_facebook">#1878F1</color>
+    <color name="curious_blue_login">#1EA1E4</color>
 
 
 </resources>

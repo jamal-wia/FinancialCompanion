@@ -4,17 +4,22 @@ package com.financialcompanion.android.auth.presentation
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -24,11 +29,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -81,28 +90,164 @@ class AuthFragment : BaseFragment() {
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
             )
-
-            Button(
-                onClick = { /*TODO*/ },
+            Spacer(modifier = Modifier.height(16.dp))
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                shape = RoundedCornerShape(10.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = AzureRadiance),
-                elevation = ButtonDefaults.buttonElevation(defaultElevation = 5.dp)
+                    .padding(horizontal = 16.dp)
             ) {
-                Icon(
-                    contentDescription = null,
-                    painter = painterResource(id = R.drawable.ic_google),
-                    modifier = Modifier.background(Color.White),
-                    tint = Color.Unspecified,
-                )
-                Spacer(modifier = Modifier.width(20.dp))
-                Text(
-                    text = stringResource(id = R.string.sign_in_google_text_auth)
-                        .uppercase(),
-                    fontSize = 22.sp,
-                )
+                Button(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    contentPadding = PaddingValues(vertical = 2.dp, horizontal = 2.dp),
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = AzureRadiance),
+                    elevation = ButtonDefaults.buttonElevation(defaultElevation = 5.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Icon(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.ic_google),
+                            modifier = Modifier
+                                .size(48.dp)
+                                .background(
+                                    color = Color.White,
+                                    shape = RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp
+                                    )
+                                ),
+                            tint = Color.Unspecified,
+                        )
+                        Text(
+                            text = stringResource(id = R.string.sign_in_google_text_auth)
+                                .uppercase(),
+                            fontSize = 15.sp,
+                        )
+                        Spacer(modifier = Modifier)
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Button(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    contentPadding = PaddingValues(vertical = 2.dp, horizontal = 2.dp),
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = AzureRadiance),
+                    elevation = ButtonDefaults.buttonElevation(defaultElevation = 5.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Icon(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.ic_facebook),
+                            modifier = Modifier
+                                .size(48.dp)
+                                .background(
+                                    color = Color.White,
+                                    shape = RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp
+                                    )
+                                )
+                                .height(48.dp),
+                            tint = Color.Unspecified,
+                        )
+                        Text(
+                            text = stringResource(id = R.string.sign_in_facebook_text_auth)
+                                .uppercase(),
+                            fontSize = 15.sp,
+                        )
+                        Spacer(modifier = Modifier)
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Button(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    contentPadding = PaddingValues(vertical = 2.dp, horizontal = 2.dp),
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = AzureRadiance),
+                    elevation = ButtonDefaults.buttonElevation(defaultElevation = 5.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Icon(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.ic_email),
+                            modifier = Modifier
+                                .size(48.dp)
+                                .background(
+                                    color = Color.White,
+                                    shape = RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp
+                                    )
+                                )
+                                .padding(3.dp),
+                            tint = Color.Unspecified,
+                        )
+                        Text(
+                            text = stringResource(id = R.string.registration_text_auth)
+                                .uppercase(),
+                            fontSize = 15.sp,
+                        )
+                        Spacer(modifier = Modifier)
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            val context = LocalContext.current
+            val part = stringResource(id = R.string.login_to_account).uppercase()
+            val textAnnotatedString = buildAnnotatedString {
+                withStyle(
+                    style = SpanStyle(
+                        color = Color.Black,
+                        fontSize = 18.sp,
+                    )
+                ) {
+                    append(text = stringResource(id = R.string.title_text_auth))
+                }
+
+                withStyle(
+                    style = SpanStyle(
+                        color = Color.Blue,
+                        fontSize = 17.sp
+                    )
+                ) {
+                    append(
+                        text = stringResource(id = R.string.login_to_account).uppercase()
+                    )
+                }
+            }
+            ClickableText(
+                text = textAnnotatedString,
+            ) { offset ->
+                val str = textAnnotatedString.text
+                val start = str.indexOf(part)
+                val end = start + part.length
+                val range = start..end
+                if (range.contains(offset)) {
+                    Toast.makeText(context, "Text True", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
