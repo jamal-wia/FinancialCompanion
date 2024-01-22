@@ -34,6 +34,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -44,6 +45,11 @@ import androidx.compose.ui.unit.sp
 import com.financialcompanion.android.R
 import com.financialcompanion.android.core.presentation.base.BaseFragment
 import com.financialcompanion.android.core.presentation.theme.AzureRadiance
+import com.financialcompanion.android.core.presentation.theme.Black
+import com.financialcompanion.android.core.presentation.theme.DodgerBlue
+import com.financialcompanion.android.core.presentation.theme.Gallery
+import com.financialcompanion.android.core.presentation.theme.Gray
+import com.financialcompanion.android.core.presentation.theme.PictonBlue
 
 class AuthFragment : BaseFragment() {
     override fun onCreateView(
@@ -220,17 +226,20 @@ class AuthFragment : BaseFragment() {
             val textAnnotatedString = buildAnnotatedString {
                 withStyle(
                     style = SpanStyle(
-                        color = Color.Black,
-                        fontSize = 18.sp,
+                        color = Black,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold
                     )
                 ) {
                     append(text = stringResource(id = R.string.title_text_auth))
                 }
 
+                append(" ")
+
                 withStyle(
                     style = SpanStyle(
-                        color = Color.Blue,
-                        fontSize = 17.sp
+                        color = DodgerBlue,
+                        fontSize = 15.sp,
                     )
                 ) {
                     append(
@@ -238,6 +247,7 @@ class AuthFragment : BaseFragment() {
                     )
                 }
             }
+
             ClickableText(
                 text = textAnnotatedString,
             ) { offset ->
@@ -246,7 +256,98 @@ class AuthFragment : BaseFragment() {
                 val end = start + part.length
                 val range = start..end
                 if (range.contains(offset)) {
-                    Toast.makeText(context, "Text True", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Text True", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            Spacer(modifier = Modifier.height(6.dp))
+
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(color = Gallery)
+                    .padding(horizontal = 10.dp),
+
+                ) {
+                val rulesOfUsePart = stringResource(
+                    id = R.string.rules_of_use
+                )
+                val privacyPolicyPart = stringResource(
+                    id = R.string.privacy_policy
+                )
+
+                val privacyBuildAnnotatedString = buildAnnotatedString {
+                    withStyle(
+                        style = SpanStyle(
+                            color = Gray,
+                            fontSize = 15.sp,
+
+                            )
+                    ) {
+                        append(text = stringResource(id = R.string.privacy_policy_description))
+                    }
+                    append(" ")
+
+                    withStyle(
+                        style = SpanStyle(
+                            color = PictonBlue,
+                            fontSize = 15.sp
+                        )
+                    ) {
+                        append(text = stringResource(id = R.string.rules_of_use))
+                    }
+                    append(" ")
+
+                    withStyle(
+                        style = SpanStyle(
+                            color = Gray,
+                            fontSize = 15.sp
+                        )
+                    ) {
+                        append(text = stringResource(id = R.string.and))
+                    }
+
+                    append(" ")
+
+                    withStyle(
+                        style = SpanStyle(
+                            color = PictonBlue,
+                            fontSize = 15.sp
+                        )
+                    ) {
+                        append(text = stringResource(id = R.string.privacy_policy))
+                    }
+
+                    append(" ")
+
+                    withStyle(
+                        style = SpanStyle(
+                            color = Gray,
+                            fontSize = 15.sp
+                        )
+                    ) {
+                        append(text = stringResource(id = R.string.privacy_policy_description_part2))
+                    }
+                }
+                ClickableText(
+                    text = privacyBuildAnnotatedString,
+                    style = TextStyle(textAlign = TextAlign.Center),
+                ) { offset ->
+                    val str = privacyBuildAnnotatedString.text
+                    val start = str.indexOf(rulesOfUsePart)
+                    val end = start + rulesOfUsePart.length
+                    val range = start..end
+                    val strSecond = privacyBuildAnnotatedString.text
+                    val startSecond = strSecond.indexOf(privacyPolicyPart)
+                    val endSecond = startSecond + privacyPolicyPart.length
+                    val rangeSecond = startSecond..endSecond
+
+                    if (range.contains(offset)) {
+                        Toast.makeText(context, "Click Successful", Toast.LENGTH_SHORT).show()
+                    }
+                    if (rangeSecond.contains(offset)) {
+                        Toast.makeText(context, "Policy Privacy", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
