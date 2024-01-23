@@ -8,8 +8,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,6 +21,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -67,18 +66,12 @@ class AuthFragment : BaseFragment() {
     @Preview(showBackground = true)
     @Composable
     fun DataState() {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .scrollable(
-                    state = rememberScrollState(),
-                    orientation = Orientation.Vertical
-                )
-        ) {
+
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(color = Color.White),
+                    .background(color = Color.White)
+                    .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Box(
@@ -227,7 +220,6 @@ class AuthFragment : BaseFragment() {
                     }
                 }
             }
-        }
     }
 
     @Composable
@@ -237,7 +229,10 @@ class AuthFragment : BaseFragment() {
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            LoginButton(image = R.drawable.ic_facebook, text = R.string.sign_in_facebook_text_auth)
+            LoginButton(
+                image = R.drawable.ic_facebook,
+                text = R.string.sign_in_facebook_text_auth
+            )
 
             Spacer(modifier = Modifier.height(10.dp))
 
