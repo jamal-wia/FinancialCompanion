@@ -51,8 +51,12 @@ import com.financialcompanion.android.core.presentation.theme.Gallery
 import com.financialcompanion.android.core.presentation.theme.Gray
 import com.financialcompanion.android.core.presentation.theme.PictonBlue
 import com.financialcompanion.android.core.presentation.theme.Shamrock
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AuthFragment : BaseFragment() {
+
+    private val viewModel by viewModel<AuthViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -66,160 +70,159 @@ class AuthFragment : BaseFragment() {
     @Preview(showBackground = true)
     @Composable
     fun DataState() {
-
-            Column(
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = Color.White)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(color = Color.White)
-                    .verticalScroll(rememberScrollState()),
-                horizontalAlignment = Alignment.CenterHorizontally,
+                    .height(190.dp)
+                    .background(color = Shamrock),
+                contentAlignment = Alignment.Center
             ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(190.dp)
-                        .background(color = Shamrock),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.img_auth_top_bar),
-                        contentDescription = null,
+                Image(
+                    painter = painterResource(id = R.drawable.img_auth_top_bar),
+                    contentDescription = null,
+                )
+            }
+
+            Text(
+                text = stringResource(id = R.string.description_text_auth),
+                modifier = Modifier.padding(top = 18.dp),
+                fontSize = 20.sp,
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            LoginContainer()
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            val loginWord = stringResource(id = R.string.login_to_account).uppercase()
+            val textAnnotatedString = buildAnnotatedString {
+                withStyle(
+                    style = SpanStyle(
+                        color = Black,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold
                     )
+                ) {
+                    append(text = stringResource(id = R.string.title_text_auth))
                 }
 
-                Text(
-                    text = stringResource(id = R.string.description_text_auth),
-                    modifier = Modifier.padding(top = 18.dp),
-                    fontSize = 20.sp,
-                    textAlign = TextAlign.Center,
-                    fontWeight = FontWeight.Bold,
-                )
+                append(" ")
 
-                Spacer(modifier = Modifier.height(16.dp))
+                withStyle(
+                    style = SpanStyle(
+                        color = DodgerBlue,
+                        fontSize = 15.sp,
+                    )
+                ) {
+                    append(text = loginWord)
+                }
+            }
+            ClickableText(
+                text = textAnnotatedString,
+            ) { offset ->
+                val start = textAnnotatedString.indexOf(loginWord)
+                val end = start + loginWord.length
+                if (offset in start..end) {
+                    //TODO
+                }
+            }
 
-                LoginContainer()
+            Spacer(modifier = Modifier.height(6.dp))
 
-                Spacer(modifier = Modifier.height(20.dp))
-
-                val loginWord = stringResource(id = R.string.login_to_account).uppercase()
-                val textAnnotatedString = buildAnnotatedString {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(color = Gallery)
+                    .padding(horizontal = 10.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                val rulesOfUsePart = stringResource(id = R.string.rules_of_use)
+                val privacyPolicyPart = stringResource(id = R.string.privacy_policy)
+                val privacyBuildAnnotatedString = buildAnnotatedString {
                     withStyle(
                         style = SpanStyle(
-                            color = Black,
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.Bold
+                            color = Gray,
+                            fontSize = 15.sp,
                         )
                     ) {
-                        append(text = stringResource(id = R.string.title_text_auth))
+                        append(text = stringResource(id = R.string.privacy_policy_description))
                     }
 
                     append(" ")
 
                     withStyle(
                         style = SpanStyle(
-                            color = DodgerBlue,
-                            fontSize = 15.sp,
+                            color = PictonBlue,
+                            fontSize = 15.sp
                         )
                     ) {
-                        append(text = loginWord)
+                        append(text = rulesOfUsePart)
+                    }
+
+                    append(" ")
+
+                    withStyle(
+                        style = SpanStyle(
+                            color = Gray,
+                            fontSize = 15.sp
+                        )
+                    ) {
+                        append(text = stringResource(id = R.string.and))
+                    }
+
+                    append(" ")
+
+                    withStyle(
+                        style = SpanStyle(
+                            color = PictonBlue,
+                            fontSize = 15.sp
+                        )
+                    ) {
+                        append(text = privacyPolicyPart)
+                    }
+
+                    append(" ")
+
+                    withStyle(
+                        style = SpanStyle(
+                            color = Gray,
+                            fontSize = 15.sp
+                        )
+                    ) {
+                        append(text = stringResource(id = R.string.privacy_policy_description_part2))
                     }
                 }
                 ClickableText(
-                    text = textAnnotatedString,
+                    text = privacyBuildAnnotatedString,
+                    style = TextStyle(textAlign = TextAlign.Center),
                 ) { offset ->
-                    val start = textAnnotatedString.indexOf(loginWord)
-                    val end = start + loginWord.length
-                    if (offset in start..end) {
-                        //TODO
-                    }
-                }
+                    val start = privacyBuildAnnotatedString.indexOf(rulesOfUsePart)
+                    val end = start + rulesOfUsePart.length
+                    val startSecond = privacyBuildAnnotatedString.indexOf(privacyPolicyPart)
+                    val endSecond = startSecond + privacyPolicyPart.length
 
-                Spacer(modifier = Modifier.height(6.dp))
-
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(color = Gallery)
-                        .padding(horizontal = 10.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    val rulesOfUsePart = stringResource(id = R.string.rules_of_use)
-                    val privacyPolicyPart = stringResource(id = R.string.privacy_policy)
-                    val privacyBuildAnnotatedString = buildAnnotatedString {
-                        withStyle(
-                            style = SpanStyle(
-                                color = Gray,
-                                fontSize = 15.sp,
-                            )
-                        ) {
-                            append(text = stringResource(id = R.string.privacy_policy_description))
+                    when {
+                        offset in start..end -> {
+                            //TODO
                         }
 
-                        append(" ")
-
-                        withStyle(
-                            style = SpanStyle(
-                                color = PictonBlue,
-                                fontSize = 15.sp
-                            )
-                        ) {
-                            append(text = rulesOfUsePart)
-                        }
-
-                        append(" ")
-
-                        withStyle(
-                            style = SpanStyle(
-                                color = Gray,
-                                fontSize = 15.sp
-                            )
-                        ) {
-                            append(text = stringResource(id = R.string.and))
-                        }
-
-                        append(" ")
-
-                        withStyle(
-                            style = SpanStyle(
-                                color = PictonBlue,
-                                fontSize = 15.sp
-                            )
-                        ) {
-                            append(text = privacyPolicyPart)
-                        }
-
-                        append(" ")
-
-                        withStyle(
-                            style = SpanStyle(
-                                color = Gray,
-                                fontSize = 15.sp
-                            )
-                        ) {
-                            append(text = stringResource(id = R.string.privacy_policy_description_part2))
-                        }
-                    }
-                    ClickableText(
-                        text = privacyBuildAnnotatedString,
-                        style = TextStyle(textAlign = TextAlign.Center),
-                    ) { offset ->
-                        val start = privacyBuildAnnotatedString.indexOf(rulesOfUsePart)
-                        val end = start + rulesOfUsePart.length
-                        val startSecond = privacyBuildAnnotatedString.indexOf(privacyPolicyPart)
-                        val endSecond = startSecond + privacyPolicyPart.length
-
-                        when {
-                            offset in start..end -> {
-                                //TODO
-                            }
-
-                            offset in startSecond..endSecond -> {
-                                //TODO
-                            }
+                        offset in startSecond..endSecond -> {
+                            //TODO
                         }
                     }
                 }
             }
+        }
     }
 
     @Composable

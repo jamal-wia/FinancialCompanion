@@ -1,6 +1,7 @@
 package com.financialcompanion.android.core.presentation.navigation
 
 import com.financialcompanion.android.R
+import com.financialcompanion.android.auth.domain.usecase.UserIsAuthorizationUseCase
 import com.financialcompanion.android.greetings.domain.usecase.GreetingsIsShowedUseCase
 import com.jamal_aliev.navigationcontroller.controllers.BottomNavigationControllerFragmentScreen
 import com.jamal_aliev.navigationcontroller.controllers.LineNavigationControllerFragmentScreen
@@ -16,10 +17,15 @@ sealed class AppScreen : Screen, Serializable {
             val greetingsIsShowedUseCase = KoinJavaComponent
                 .get<GreetingsIsShowedUseCase>(GreetingsIsShowedUseCase::class.java)
 
-            if (greetingsIsShowedUseCase.getIsShowed()) {
-                listOf(TabNavigationControllerScreen)
-            } else {
+            val userIsAuthorizationUseCase = KoinJavaComponent
+                .get<UserIsAuthorizationUseCase>(UserIsAuthorizationUseCase::class.java)
+
+            if (!greetingsIsShowedUseCase.getIsShowed()) {
                 listOf(GreetingScreen)
+            } else if (!userIsAuthorizationUseCase.getUserIsAuthorization()) {
+                listOf(AuthScreen)
+            } else {
+                listOf(TabNavigationControllerScreen)
             }
         }
     )
@@ -71,4 +77,5 @@ sealed class AppScreen : Screen, Serializable {
     object HomeScreen : Screen, Serializable
     object ProfileScreen : Screen, Serializable
     object GreetingScreen : Screen, Serializable
+    object AuthScreen : Screen, Serializable
 }
