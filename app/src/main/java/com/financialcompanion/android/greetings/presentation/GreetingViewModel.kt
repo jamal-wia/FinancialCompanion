@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import me.aartikov.alligator.AndroidNavigator
 
-class GreetingViewModel : BaseViewModel() {
+class GreetingViewModel() : BaseViewModel() {
 
     private val _state = MutableStateFlow<GreetingViewState>(Data)
     val state = _state.asStateFlow()
