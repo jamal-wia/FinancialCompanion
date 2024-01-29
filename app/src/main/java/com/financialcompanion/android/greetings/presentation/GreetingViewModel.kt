@@ -19,6 +19,6 @@ class GreetingViewModel : BaseViewModel() {
 
     fun startClicked() {
         greetingsIsShowedUseCase.setIsShowed(true)
-        navigator.reset(AppScreen.TabNavigationControllerScreen)
+        navigator.reset(AppScreen.AuthScreen)
     }
 }

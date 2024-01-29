@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">Все ваши финансы в одном приложении</string>
+    <string name="app_name">App Name</string>
 
+    //Greeting
     <string name="title_screen_first">Все ваши финансы в одном приложении</string>
     <string name="title_screen_second">Подключите ваш банк</string>
     <string name="title_screen_third">Отслеживайте ваши расходы</string>
     <string name="title_screen_fourth">Определите свою цель</string>
     <string name="title_screen_fifth">Уравляйте своими денежными средствами</string>
     <string name="title_screen_sixth">Следуйте своему плану и мечтам</string>
-
     <string name="description_screen_first">Получите полную картинку обо всех своих деньгах.
     Подключите свой банк,отслеживайте наличные или имортируйте данные</string>
     <string name="description_screen_second">Подключите все свои счета из любого банка.
@@ -20,7 +20,20 @@
         Управляйте ненужными расходами</string>
     <string name="description_screen_sixth">Постройте свою финансовую жизнь.
         Принимайте правильные финансовые решения.Смотрите только то,что важно для вас</string>
-
     <string name="start_right_now_button">Начните прямо сейчас</string>
+
+    //Auth
+    <string name="description_text_auth">Зарегистрируйтесь,чтобы создать безопасную учетную запись.</string>
+    <string name="sign_in_google_text_auth">Войти через GOOGLE </string>
+    <string name="sign_in_facebook_text_auth">Войти через FACEBOOK </string>
+    <string name="registration_text_auth">Регистрация </string>
+    <string name="title_text_auth">Уже зарегистрированны?</string>
+    <string name="login_to_account">войти</string>
+    <string name="privacy_policy_description">Регистрируясь или подключаясь к вышеуказанным службам,
+            вы принимаете наши </string>
+    <string name="rules_of_use">Правилами использования</string>
+    <string name="and">и</string>
+    <string name="privacy_policy">Политикой конфедициальности,</string>
+    <string name="privacy_policy_description_part2">описывающие,как мы обрабатываем ваши личные данные. </string>
 
 </resources>
