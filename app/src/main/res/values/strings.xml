@@ -36,4 +36,11 @@
     <string name="privacy_policy">Политикой конфедициальности,</string>
     <string name="privacy_policy_description_part2">описывающие,как мы обрабатываем ваши личные данные. </string>
 
+    //Account
+    <string name="create_new_account">Создать новый аккаунт</string>
+    <string name="email">Email</string>
+    <string name="click_text">Выберите ваш адрес электронной почты</string>
+    <string name="password">Пароль</string>
+    <string name="minimum_six_symbols">Минимум 6 символов</string>
+
 </resources>
