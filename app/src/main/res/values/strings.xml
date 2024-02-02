@@ -42,5 +42,8 @@
     <string name="click_text">Выберите ваш адрес электронной почты</string>
     <string name="password">Пароль</string>
     <string name="minimum_six_symbols">Минимум 6 символов</string>
+    <string name="create_account">Создать счет</string>
+    <string name="have_account">Уже зарегистрированы?</string>
+    <string name="singn_in">ВОЙТИ</string>
 
 </resources>

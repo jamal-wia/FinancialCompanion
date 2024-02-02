@@ -28,18 +28,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.financialcompanion.android.R
 import com.financialcompanion.android.core.presentation.base.BaseFragment
+import com.financialcompanion.android.core.presentation.theme.DodgerBlue
+import com.financialcompanion.android.core.presentation.theme.Dove_Gray
 import com.financialcompanion.android.core.presentation.theme.Gallery
 import com.financialcompanion.android.core.presentation.theme.Gray
 import com.financialcompanion.android.core.presentation.theme.Monte_Carlo
 import com.financialcompanion.android.core.presentation.theme.Mountain_Meadow
+import com.financialcompanion.android.core.presentation.theme.Porcelain
 import com.financialcompanion.android.core.presentation.theme.Silver_Chalice
 
 class CreateAccountFragment : BaseFragment() {
@@ -79,16 +84,19 @@ class CreateAccountFragment : BaseFragment() {
 
             Spacer(modifier = Modifier.height(22.dp))
 
-            Text(
-                text = stringResource(id = R.string.create_new_account),
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
-            )
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(horizontal = 49.dp)
             ) {
+                Text(
+                    text = stringResource(id = R.string.create_new_account),
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    textAlign = TextAlign.Center
+                )
+
                 Spacer(modifier = Modifier.height(10.dp))
 
                 Text(
@@ -132,15 +140,38 @@ class CreateAccountFragment : BaseFragment() {
                     }
                 )
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(20.dp))
 
                 Button(
                     onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(5.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Monte_Carlo)
                 ) {
-                    Text(text = "")
+                    Text(
+                        text = stringResource(id = R.string.create_account)
+                            .uppercase(),
+                        color = Porcelain, fontSize = 19.sp
+                    )
                 }
+                Spacer(modifier = Modifier.weight(1f))
+
+                Column(modifier = Modifier.align(alignment = Alignment.CenterHorizontally)) {
+
+                    Text(
+                        text = stringResource(id = R.string.have_account),
+                        modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+                        color = Dove_Gray, fontSize = 17.sp
+                    )
+
+                    ClickableText(
+                        text = AnnotatedString(stringResource(id = R.string.singn_in)),
+                        onClick = {},
+                        modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+                        style = TextStyle(color = DodgerBlue, fontSize = 15.sp)
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(15.dp))
             }
         }
     }
