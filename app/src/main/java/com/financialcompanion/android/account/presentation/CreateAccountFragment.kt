@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -45,6 +46,7 @@ import com.financialcompanion.android.core.presentation.theme.Gray
 import com.financialcompanion.android.core.presentation.theme.Monte_Carlo
 import com.financialcompanion.android.core.presentation.theme.Mountain_Meadow
 import com.financialcompanion.android.core.presentation.theme.Porcelain
+import com.financialcompanion.android.core.presentation.theme.Silver
 import com.financialcompanion.android.core.presentation.theme.Silver_Chalice
 
 class CreateAccountFragment : BaseFragment() {
@@ -131,7 +133,9 @@ class CreateAccountFragment : BaseFragment() {
                     text.value,
                     onValueChange = { text.value },
                     textStyle = TextStyle(color = Silver_Chalice, fontSize = 14.sp),
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .border(width = 0.dp, color = Silver),
                     trailingIcon = {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_show),
