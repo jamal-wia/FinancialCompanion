@@ -78,5 +78,6 @@ sealed class AppScreen : Screen, Serializable {
     object ProfileScreen : Screen, Serializable
     object GreetingScreen : Screen, Serializable
     object AuthScreen : Screen, Serializable
+    object AccountScreen : Screen, Serializable
     object CategoriesScreen : Screen, Serializable
 }

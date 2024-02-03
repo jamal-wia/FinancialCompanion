@@ -1,10 +1,12 @@
 package com.financialcompanion.android.core.presentation.navigation
 
+import com.financialcompanion.android.account.presentation.AccountFragment
 import com.financialcompanion.android.auth.presentation.AuthFragment
-import com.financialcompanion.android.core.presentation.navigation.AppScreen.AuthScreen
-import com.financialcompanion.android.core.presentation.navigation.AppScreen.GreetingScreen
 import com.financialcompanion.android.category.presentation.categories.CategoriesFragment
+import com.financialcompanion.android.core.presentation.navigation.AppScreen.AccountScreen
+import com.financialcompanion.android.core.presentation.navigation.AppScreen.AuthScreen
 import com.financialcompanion.android.core.presentation.navigation.AppScreen.CategoriesScreen
+import com.financialcompanion.android.core.presentation.navigation.AppScreen.GreetingScreen
 import com.financialcompanion.android.core.presentation.navigation.AppScreen.HomeLineNavigationControllerScreen
 import com.financialcompanion.android.core.presentation.navigation.AppScreen.HomeScreen
 import com.financialcompanion.android.core.presentation.navigation.AppScreen.ProfileLineNavigationControllerScreen
@@ -71,6 +73,10 @@ class AppNavigationFactory : NavigationControllerFactory() {
         registerFragment(
             AuthScreen::class.java,
             AuthFragment::class.java
+        )
+        registerFragment(
+            AccountScreen::class.java,
+            AccountFragment::class.java
         )
     }
 }

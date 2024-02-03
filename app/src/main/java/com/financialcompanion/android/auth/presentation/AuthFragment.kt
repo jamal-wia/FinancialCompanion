@@ -246,7 +246,7 @@ class AuthFragment : BaseFragment() {
     @Composable
     fun LoginButton(@DrawableRes image: Int, @StringRes text: Int) {
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { viewModel.goToAccount() },
             modifier = Modifier.fillMaxWidth(),
             contentPadding = PaddingValues(vertical = 2.dp, horizontal = 2.dp),
             shape = RoundedCornerShape(10.dp),

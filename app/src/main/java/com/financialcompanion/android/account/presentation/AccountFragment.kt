@@ -19,6 +19,7 @@ import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -48,8 +49,11 @@ import com.financialcompanion.android.core.presentation.theme.Mountain_Meadow
 import com.financialcompanion.android.core.presentation.theme.Porcelain
 import com.financialcompanion.android.core.presentation.theme.Silver
 import com.financialcompanion.android.core.presentation.theme.Silver_Chalice
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CreateAccountFragment : BaseFragment() {
+class AccountFragment : BaseFragment() {
+
+    private val viewModel by viewModel<AccountViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -70,10 +74,15 @@ class CreateAccountFragment : BaseFragment() {
         ) {
 
             Box(modifier = Modifier.fillMaxWidth()) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_go_back),
-                    contentDescription = null,
-                    modifier = Modifier.padding(13.dp)
+                IconButton(
+                    onClick = { viewModel.goBackAuth() },
+                    modifier = Modifier.padding(13.dp),
+                    content = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_go_back),
+                            contentDescription = null
+                        )
+                    }
                 )
             }
 
